@@ -6,10 +6,11 @@ import {
     NavbarListLI,
     NavbarListUL,
     SecondaryDiv,
+    SimpleButton,
 } from "./TailwindSC/Styled"
 import { ThemeContext } from "./Context"
 
-const Header = () => {
+const NavBar = () => {
     const { darkMode, emoji, changeTheme } = useContext(ThemeContext)
 
     return (
@@ -20,21 +21,23 @@ const Header = () => {
 
             <SecondaryDiv>
                 <SecondaryDiv>
-                    <NavbarListUL>
-                        <NavbarListLI>Home</NavbarListLI>
-                        <NavbarListLI>About</NavbarListLI>
-                        <NavbarListLI>Our work</NavbarListLI>
-                        <NavbarListLI>Contact</NavbarListLI>
+                    <NavbarListUL dark={darkMode}>
+                        <NavbarListLI dark={darkMode}>Home</NavbarListLI>
+                        <NavbarListLI dark={darkMode}>About</NavbarListLI>
+                        <NavbarListLI dark={darkMode}>Our work</NavbarListLI>
                     </NavbarListUL>
                 </SecondaryDiv>
-                <SecondaryDiv>
-                    <button onClick={changeTheme} className="cursor-pointer">
-                        {emoji}
-                    </button>
-                </SecondaryDiv>
+            </SecondaryDiv>
+
+            <SecondaryDiv>
+                <SimpleButton dark={darkMode}>Contact Us</SimpleButton>
+
+                <button onClick={changeTheme} className="cursor-pointer">
+                    {emoji}
+                </button>
             </SecondaryDiv>
         </MainDiv>
     )
 }
 
-export default Header
+export default NavBar
